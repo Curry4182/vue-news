@@ -7,6 +7,10 @@ const router = createRouter({
     history: createWebHistory('/'),
     routes: [
         {
+            path: '/',
+            redirect: '/news'
+        },
+        {
             path: '/news',
             name: 'NEWS',
             component: NewsView
