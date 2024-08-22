@@ -1,20 +1,18 @@
 <template>
     <div>
-
         <section>
-            <div class="user-container">
-                <div>
-                    <i class="fa-regular fa-user"></i>
-                </div>
-                <div class="user-description">
+            <UserProfile>
+                <template v-slot:username>
                     <router-link :to="`/user/${askItem.user}`">
                         {{ askItem.user }}
                     </router-link>
-                    <div class="time">
-                        {{ askItem.time_ago }}
-                    </div>
-                </div>
-            </div>
+                </template>
+                <template v-slot:time>
+                    <div >Posted {{ askItem.time_ago }}</div>
+                </template>
+            </UserProfile>
+        </section>
+        <section>
             <h2> {{ askItem.title }}</h2>
         </section>
         <section>
@@ -34,6 +32,8 @@
 </template>
 
 <script>
+import UserProfile from '@/components/UserProfile.vue';
+
     export default {
         created() {
             const itemId = this.$route.params.id;
@@ -43,27 +43,14 @@
             askItem() {
                 return this.$store.state.askItem;
             }
+        },
+        components: {
+            UserProfile
         }
     }
 </script>
 
 <style scoped>
-.user-container {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-}
 
-.fa-user {
-    font-size: 2.5rem;
-}
-
-.user-description {
-    padding-left: 8px;
-}
-
-.time {
-    font-size: 0.7rem;
-}
 
 </style>
