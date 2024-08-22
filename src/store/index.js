@@ -6,7 +6,9 @@ export const store = createStore({
     state: {
         news: [],
         jobs: [],
-        asks: []
+        asks: [],
+        userInfo: {},
+        askItem: {}
     },
     mutations,
     actions

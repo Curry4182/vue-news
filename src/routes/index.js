@@ -1,5 +1,5 @@
 import AskView from '@/views/AskView.vue'
-import ItemView from '@/views/ItemView.vue'
+import AskItemView from '@/views/AskItemView.vue'
 import JobsView from '@/views/JobsView.vue'
 import NewsView from '@/views/NewsView.vue'
 import UserView from '@/views/UserView.vue'
@@ -28,12 +28,12 @@ const router = createRouter({
             component: JobsView
         },
         {
-            path: '/user',
+            path: '/user/:id',
             component: UserView
         },
         {
-            path: '/item',
-            component: ItemView
+            path: '/item/:id',
+            component: AskItemView
         }
     ]
 })
