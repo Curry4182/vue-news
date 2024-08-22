@@ -1,6 +1,10 @@
 <template>
   <ToolBar></ToolBar>
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <transition name="page">
+      <component :is="Component" />
+    </transition>
+</router-view>
 </template>
 
 <script>
@@ -18,4 +22,13 @@ body {
   padding: 0;
   margin: 0;
 }
+
+/* Router Transition */
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
+
 </style>
